@@ -19,4 +19,4 @@ if [[ ${SKIP_HOOKS:-} == "true" ]]; then
 fi
 
 git remote add $REMOTE $REMOTE_URL
-git push $(join_by " " $EXTRA_ARGS) $REMOTE HEAD:master
+git push $(join_by " " $EXTRA_ARGS) $REMOTE HEAD:refs/heads/master
