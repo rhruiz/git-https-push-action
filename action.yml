@@ -8,6 +8,10 @@ inputs:
   remoteUrl:
     description: 'Origin to push to'
     required: true
+  forcePush:
+    description: 'Use --force on git push'
+    required: false
+    default: false
   skipHooks:
     description: 'Skip git hooks with --no-verify'
     default: false
@@ -18,3 +22,4 @@ runs:
     SKIP_HOOKS: ${{ inputs.skipHooks }}
   args:
     - ${{ inputs.remoteUrl }}
+    - ${{ if inputs.forcePush }}--force${{ else }}${{ endif }}
