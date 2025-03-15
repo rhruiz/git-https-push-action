@@ -20,6 +20,6 @@ runs:
   image: 'Dockerfile'
   env:
     SKIP_HOOKS: ${{ inputs.skipHooks }}
+    FORCE_PUSH: ${{ inputs.forcePush }}
   args:
     - ${{ inputs.remoteUrl }}
-    - ${{ if inputs.forcePush }}--force${{ else }}${{ endif }}

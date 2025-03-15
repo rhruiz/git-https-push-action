@@ -18,5 +18,9 @@ if [[ ${SKIP_HOOKS:-} == "true" ]]; then
   EXTRA_ARGS+="--no-verify"
 fi
 
+if [[ ${FORCE_PUSH:-} == "true" ]]; then
+  EXTRA_ARGS+="--force"
+fi
+
 git remote add $REMOTE $REMOTE_URL
 git push $(join_by " " $EXTRA_ARGS) $REMOTE HEAD:refs/heads/master
